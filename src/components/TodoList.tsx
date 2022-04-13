@@ -4,6 +4,7 @@ import todosRef from "../Firebase";
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Todo from './Todo';
+import { useTable } from 'react-table'
 
 function TodoList() {
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ function TodoList() {
             <div className="App">
                 <header>
                     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                        <a className="navbar-brand" href="#">TODO APP</a>
+                    <a className="navbar-brand" onClick={gotToMainComp}><b><i className="text-danger">TODO APP</i></b></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -56,18 +57,18 @@ function TodoList() {
                     </nav>
                 </header>
                 <div>
-                    <table className="table table-bordered">
+                    <table className="table table-dark table-bordered">
                         <thead>
-                            <tr>
-                                <th scope="col">NAME</th>
-                                <th scope="col">PHONE NO.</th>
-                                <th scope="col">EMAIL</th>
-                                <th scope="col">CITY</th>
-                                <th scope="col">REMOVE</th>
+                            <tr style={{width: '20%'}}>
+                                <th style={{width: '20%'}}>NAME</th>
+                                <th style={{width: '20%'}}>PHONE NO.</th>   
+                                <th style={{width: '20%'}}>EMAIL</th>  
+                                <th style={{width: '20%'}}>CITY</th>  
+                                <th style={{width: '20%'}}>REMOVE</th>                               
                             </tr>
                         </thead>
                     </table>
-                    <table className="table table-bordered">
+                    <table className="table table-bordered ">
                         <thead>
                             <tr>
                                 {todos.map((todo: any, i: number) => (
@@ -79,6 +80,7 @@ function TodoList() {
                             </tr>
                         </thead>
                     </table>
+                    
                 </div>
             </div >
         </>
